@@ -1,0 +1,8 @@
+SELECT user_id,
+AVG(rate) as meanrate,
+DATEPART(yyyy, created_at) as createYear
+from table1
+WHERE is_deleted = 'false'
+AND content != ''
+GROUP BY user_id,DATEPART(yyyy, created_at)
+HAVING meanrate > 3.5;
